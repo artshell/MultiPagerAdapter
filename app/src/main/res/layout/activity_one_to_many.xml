@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    tools:context="com.artshell.conditions_test.OneToManyActivity">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:orientation="horizontal"
+        android:weightSum="3">
+        <Button
+            android:id="@+id/btn_normal"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:textSize="15sp"
+            android:text="常规使用"
+            android:onClick="normal"/>
+
+        <Button
+            android:id="@+id/btn_change_count"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:textSize="15sp"
+            android:text="改变页面个数"
+            android:onClick="changeCount"/>
+
+        <Button
+            android:id="@+id/btn_change_order"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:textSize="15sp"
+            android:text="变化item数据顺序"
+            android:onClick="changeOrder"/>
+    </LinearLayout>
+    <android.support.v4.view.ViewPager
+        android:id="@+id/layout_pager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+</LinearLayout>
