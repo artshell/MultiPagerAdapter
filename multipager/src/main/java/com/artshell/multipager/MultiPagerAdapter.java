@@ -1,3 +1,19 @@
+/*
+ * Copyright 2017 artshell. https://github.com/artshell
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *    http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 package com.artshell.multipager;
 
 import android.support.annotation.NonNull;
@@ -143,8 +159,9 @@ public class MultiPagerAdapter extends PagerAdapter {
      * item has not changed or {@link #POSITION_NONE} if the item is no longer present
      * in the adapter.
      * <p>
-     * <p>The default implementation assumes that items will never
+     * The default implementation assumes that items will never
      * change position and always returns {@link #POSITION_UNCHANGED}.
+     * </p>
      * @param object Object representing an item, previously returned by a call to {@link #instantiateItem(View, int)}.
      * @return object's new position index from [0, {@link #getCount()}),
      * {@link #POSITION_UNCHANGED} if the object's position has not changed, or {@link #POSITION_NONE} if the item is no longer present.
@@ -205,7 +222,7 @@ public class MultiPagerAdapter extends PagerAdapter {
         }
 
         /**
-         * @return
+         * @return page width
          * @see PagerAdapter#getPageWidth(int)
          */
         public float getPageWidth() {
@@ -221,7 +238,7 @@ public class MultiPagerAdapter extends PagerAdapter {
         }
 
         /**
-         * @return
+         * @return adapter position
          */
         public int getAdapterPosition() {
             Numbers.requireNonNegative(adapterPosition, "PageHolder " + this + " not attached to MultiPagerAdapter. " + "You should not call the method before registering the ItemPageBinder.");

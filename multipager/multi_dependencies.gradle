@@ -1,9 +1,14 @@
 ext.versions = [
         compileSdk        : 26,
         minSdk            : 14,
-        buildTools        : '27.0.0',
+        buildTools        : '27.0.1',
+        supportLib        : '27.0.2',
+        compatVersion     : '1.7',
+]
+
+ext.push = [
+        groupId           : 'com.artshell',
+        artifactId        : 'MultiPagerAdapter',
         publishCode       : 100,
         publishName       : '1.0.0',
-        supportLib        : '26.1.0',
-        compatVersion     : '1.7',
 ]
