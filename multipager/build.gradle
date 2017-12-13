@@ -33,9 +33,9 @@ android {
         }
     }
 
-    productFlavors {}
+    productFlavors {
 
-
+    }
 }
 
 dependencies {

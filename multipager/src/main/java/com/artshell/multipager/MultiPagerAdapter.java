@@ -25,7 +25,6 @@ import android.view.ViewGroup;
 import com.artshell.multipager.utils.Numbers;
 import com.artshell.multipager.utils.Objects;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -38,7 +37,6 @@ public class MultiPagerAdapter extends PagerAdapter {
 
     private List<?> items;
     private List<CharSequence> titles;
-    private List<PageHolder> holders = new ArrayList<>();
     private Map<Class<?>, ItemPageBinder<?, ?>> mapper = new HashMap<>();
 
     public MultiPagerAdapter() {}
@@ -114,8 +112,6 @@ public class MultiPagerAdapter extends PagerAdapter {
         holder.setAdapterPosition(position);
         binder.onBindViewHolder(holder, item);
 
-        holders.add(holder);
-
         container.addView(holder.getPageView());
 
         return holder.getPageView();
@@ -147,9 +143,6 @@ public class MultiPagerAdapter extends PagerAdapter {
      */
     @Override
     public void destroyItem(@NonNull ViewGroup container, int position, @NonNull Object object) {
-        if (!holders.isEmpty()) {
-            holders.remove(position);
-        }
         container.removeView((View) object);
     }
 
@@ -197,9 +190,7 @@ public class MultiPagerAdapter extends PagerAdapter {
      */
     @Override
     public float getPageWidth(int position) {
-        PageHolder holder;
-        if (holders.isEmpty() || (holder = holders.get(position)) == null) return super.getPageWidth(position);
-        return holder.getPageWidth();
+        return super.getPageWidth(position);
     }
 
     /**
@@ -219,14 +210,6 @@ public class MultiPagerAdapter extends PagerAdapter {
          */
         public View getPageView() {
             return pageView;
-        }
-
-        /**
-         * @return page width
-         * @see PagerAdapter#getPageWidth(int)
-         */
-        public float getPageWidth() {
-            return 1.0f;
         }
 
         /**
